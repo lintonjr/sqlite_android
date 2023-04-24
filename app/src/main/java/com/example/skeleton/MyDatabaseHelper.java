@@ -12,13 +12,15 @@ import androidx.annotation.Nullable;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
-    private static final String DATABASE_NAME = "BookName.db";
+    private static final String DATABASE_NAME = "person.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_NAME = "my_library";
+    private static final String TABLE_NAME = "tbl_names";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_FNAME = "fname";
     private static final String COLUMN_LNAME = "lname";
+
+    private static final String COLUMN_IDADE = "idade";
 
     public MyDatabaseHelper(@Nullable Context activity) {
         super(activity, DATABASE_NAME, null, DATABASE_VERSION);
@@ -38,7 +40,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        String query = "DROP TABLE IF EXISTS " + TABLE_NAME;
+        db.execSQL(query);
         onCreate(db);
     }
 

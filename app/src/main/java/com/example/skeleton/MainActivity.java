@@ -30,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonSave = findViewById(R.id.main_button_save);
         mButtonDisplay = findViewById(R.id.main_button_display);
 
-        // désactiver le bouton de démarrage de jeu au lancement de l'application
         mButtonSave.setEnabled(false);
-        //mButtonDisplay.setEnabled(false);
         mLname.setEnabled(false);
 
         mFname.addTextChangedListener(new TextWatcher() {
@@ -79,13 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(MainActivity.this);
                 myDB.addPerson(fName.trim(), lName.trim());
 
-                // permettent de lancer de nouvelles Activity grâce à la méthode startActivity().
-                /*Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
-                intent.putExtra(EXTRA_FNAME, fName);
-                intent.putExtra(EXTRA_LNAME, lName);
-                startActivity(intent);*/
-
-
             }
         });
 
@@ -95,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
                 MyDatabaseHelper myDB = new MyDatabaseHelper(MainActivity.this);
 
-                // permettent de lancer de nouvelles Activity grâce à la méthode startActivity().
                 Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
                 startActivity(intent);
 
